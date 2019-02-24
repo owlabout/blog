@@ -13,6 +13,9 @@ export default {
       this.$el.querySelectorAll("pre code").forEach(el => {
         this.$el.prepend(el.parentNode.parentNode);
       });
+      this.$el.querySelectorAll(".sticky").forEach(el => {
+        this.$el.prepend(el);
+      });
     });
   }
 };
@@ -26,11 +29,11 @@ section {
   flex-wrap: wrap;
   padding: 1rem;
 
-  &>* {
+  & > * {
     max-width: 68rem;
   }
 
-  div[class*='language-'] {
+  div[class*='language-'], .sticky {
     flex-grow: 1;
     position: sticky;
     top: 10rem;
@@ -38,7 +41,6 @@ section {
 
   &>.section-content {
     flex-grow: 2;
-    height: 200vh;
     padding: 1rem;
 
     p:first-of-type {

@@ -3,6 +3,7 @@
     <Navbar/>
 
     <Content/>
+    <Footer/>
   </div>
 </template>
 
@@ -10,11 +11,12 @@
 import Vue from "vue";
 import nprogress from "nprogress";
 import Navbar from "./Navbar.vue";
+import Footer from "./Footer.vue";
 import SWUpdatePopup from "./SWUpdatePopup.vue";
 import { themeConfig } from "../config.js";
 
 export default {
-  components: { Navbar, SWUpdatePopup },
+  components: { Navbar, SWUpdatePopup, Footer },
 
   data() {
     return {};

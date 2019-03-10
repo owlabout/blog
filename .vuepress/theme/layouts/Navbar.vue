@@ -2,7 +2,7 @@
   <header>
     <div class="container">
       <router-link :to="$localePath" class="logo home-link">
-        <img src="../public/logo.svg" alt="OwlAbout Logo">wlAbout
+        <img src="../../public/logo.svg" alt="OwlAbout Logo">wlAbout
       </router-link>
       <NavLinks class="can-hide"/>
       <SearchBox v-if="$site.themeConfig.search !== false"/>
@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import SearchBox from "./SearchBox.vue";
-import NavLinks from "./NavLinks.vue";
+import SearchBox from "@SearchBox";
+import NavLinks from "@parent-theme/components/NavLinks.vue";
 
 export default {
   components: { NavLinks, SearchBox },
@@ -45,8 +45,6 @@ function css(el, property) {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
-
 header {
   border-bottom: 4px solid $primary;
   box-shadow: 0 0 10px 4px $lightgrey;

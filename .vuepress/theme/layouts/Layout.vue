@@ -13,11 +13,10 @@ import nprogress from "nprogress";
 import Navbar from "./Navbar.vue";
 import Home from "./Home.vue";
 import Footer from "./Footer.vue";
-import SWUpdatePopup from "./SWUpdatePopup.vue";
-import { themeConfig } from "../config.js";
+import { themeConfig } from "../../config.js";
 
 export default {
-  components: { Navbar, SWUpdatePopup, Home, Footer },
+  components: { Navbar, Home, Footer },
 
   data() {
     return {};
@@ -47,20 +46,11 @@ export default {
 
     this.$router.afterEach(() => {
       nprogress.done();
-      this.isSidebarOpen = false;
     });
-
-    this.$on("sw-updated", this.onSWUpdated);
-  },
-
-  methods: {
-    onSWUpdated(e) {
-      this.swUpdateEvent = e;
-    }
   }
 };
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
-<style src="./styles/theme.styl" lang="stylus"></style>
-<style src="./styles/override.styl" lang="stylus"></style>
+<style src="../styles/theme.styl" lang="stylus"></style>
+<style src="../styles/override.styl" lang="stylus"></style>

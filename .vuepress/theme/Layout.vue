@@ -1,8 +1,8 @@
 <template>
   <div class="content">
     <Navbar/>
-
-    <Content/>
+    <component v-if="$page.frontmatter.layout" :is="$page.frontmatter.layout"/>
+    <Content v-else/>
     <Footer/>
   </div>
 </template>
@@ -11,12 +11,13 @@
 import Vue from "vue";
 import nprogress from "nprogress";
 import Navbar from "./Navbar.vue";
+import Home from "./Home.vue";
 import Footer from "./Footer.vue";
 import SWUpdatePopup from "./SWUpdatePopup.vue";
 import { themeConfig } from "../config.js";
 
 export default {
-  components: { Navbar, SWUpdatePopup, Footer },
+  components: { Navbar, SWUpdatePopup, Home, Footer },
 
   data() {
     return {};

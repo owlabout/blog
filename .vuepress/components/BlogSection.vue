@@ -26,7 +26,6 @@ section {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: wrap;
   padding: 1rem;
 
   & > * {
@@ -34,13 +33,14 @@ section {
   }
 
   div[class*='language-'], .sticky {
-    flex-grow: 1;
+    flex: 1 1 33%;
     position: sticky;
     top: 10rem;
+    overflow: auto;
   }
 
   &>.section-content {
-    flex-grow: 2;
+    flex: 2 0 66%;
     padding: 1rem;
 
     p:first-of-type {

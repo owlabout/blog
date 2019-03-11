@@ -52,5 +52,14 @@ export default {
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
-<style src="../styles/theme.styl" lang="stylus"></style>
-<style src="../styles/override.styl" lang="stylus"></style>
+<style lang="stylus">
+.container, .content.custom {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.content.custom {
+  min-height: calc(100vh - 9rem);
+}
+</style>
+

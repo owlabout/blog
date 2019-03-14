@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="layout-container">
     <Navbar/>
     <component v-if="$page.frontmatter.layout" :is="$page.frontmatter.layout"/>
     <Content v-else/>
@@ -53,13 +53,16 @@ export default {
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style lang="stylus">
-.container, .content.custom {
+.content, .container {
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0 1.6rem;
 }
 
-.content.custom {
-  min-height: calc(100vh - 9rem);
+.layout-container {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 70px;
 }
 </style>
 

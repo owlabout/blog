@@ -1,29 +1,37 @@
 <template>
   <footer>
-    <a class="footer-link" href="https://owlabout.de/impressum.html">Impressum</a>
-    <a class="footer-link" href="https://owlabout.de/datenschutz.html">Datenschutz</a>
-    <a class="footer-link" href="https://owlabout.de/#contact">Kontakt</a>
-    <img src="../../public/logo.svg" alt="owlabout">
+    <div class="container">
+      <a class="footer-link" href="https://owlabout.de/impressum.html">Impressum</a>
+      <a class="footer-link" href="https://owlabout.de/datenschutz.html">Datenschutz</a>
+      <a class="footer-link" href="https://owlabout.de/#contact">Kontakt</a>
+      <a href="https://owlabout.de/">
+        <img src="../../public/logo.svg" alt="owlabout">
+      </a>
+    </div>
   </footer>
 </template>
 
 <style lang="stylus">
 footer {
   height: 55px;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }
 
 footer img {
   width: 45px;
   height: 45px;
-  margin-right: 20px;
 }
 
-footer a {
+footer a.footer-link {
   color: $textColor;
   margin-right: 10px;
   padding: 15px;

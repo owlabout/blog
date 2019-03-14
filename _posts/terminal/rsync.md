@@ -1,11 +1,17 @@
+---
+published: true
+---
+
 # Rsync Anwendungsfälle
 
-<blog-section>
+:::sticky
 
 ```bash
 # Kopiere symlinks als Dateien  -> Wenn lokal source gesymlinked, aber remote nicht.
 rsync -aL --exclude "symlinkedSourceDir" sourceDir user@example.com:/targetDir
 ```
+
+:::
 
 Mittels `rsync` werden Dateien/Ordner von einem Ausgangsordner in einen Zielordner synchronisiert. Ähnlich wie `cp` (kopieren), nur dass es auch über SSH funktioniert und viele weitere Optionen möglich sind.
 
@@ -15,11 +21,7 @@ Unter anderem:
 - Dateien löschen, die im Ausgangsordner nicht vorhanden sind
 - Symbolische Links erhalten
 
-</blog-section>
-
 ## Drupal 7 mit symlinked Source
-
-<blog-section>
 
 Ein Beispielszenario:
 Als Agentur betreut man mehrere Drupal 7 Webseiten, die alle up-to-date gehalten werden müssen.
@@ -45,5 +47,3 @@ Die Ordnerstruktur könnte wie im Beispiel aussehen.
 ```
 
 Nun muss im Falle eines Updates nur der drupalSource Ordner upgedated werden.
-
-</blog-section>

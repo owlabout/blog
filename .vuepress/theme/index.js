@@ -4,7 +4,12 @@ module.exports = {
     [
       "@vuepress/container",
       {
-        type: "sticky"
+        type: "sticky",
+        before(title) {
+          if (title) title = `<p class="custom-block-title">${title}</p>`;
+          return `<div class="sticky"><div class="custom-block">${title}\n`;
+        },
+        after: "</div></div>\n"
       }
     ]
   ]

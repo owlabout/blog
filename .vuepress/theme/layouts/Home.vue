@@ -22,7 +22,7 @@ export default {
           return page;
         })
         .sort((a, b) => {
-          return b.frontmatter.published - a.frontmatter.published;
+          return b.published - a.published;
         });
     }
   }

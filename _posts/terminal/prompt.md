@@ -1,3 +1,6 @@
+---
+published: 15.03.2019
+---
 # Prompt / Eingabeaufforderung anpassen 
 
 :::sticky Bash Prompt anpassen

@@ -85,6 +85,10 @@ header nav.nav-links {
     line-height: inherit;
   }
 
+  .repo-link {
+    line-height: inherit;  
+  }
+
   .nav-item a.nav-link {
     padding: 1rem 1.6rem;
     cursor: pointer;

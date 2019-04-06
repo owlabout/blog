@@ -1,5 +1,5 @@
 ---
-published: true
+published: 24.02.2019
 ---
 
 # Rsync Anwendungsfälle

@@ -1,7 +1,7 @@
 <template>
   <div class="layout-container">
     <Navbar/>
-    <component v-if="$page.frontmatter.layout" :is="$page.frontmatter.layout"/>
+    <component v-if="$page.frontmatter.Layout" :is="$page.frontmatter.Layout"/>
     <div v-else class="container">
       <Content ref="content"/>
     </div>
@@ -96,10 +96,6 @@ export default {
     display: grid;
     grid-column-gap: 4rem;
     grid-template-rows: auto;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
-  }
-
-  @media screen and (min-width: 1050px) {
     grid-template-columns: minmax(0, 680px) 680px;
   }
 

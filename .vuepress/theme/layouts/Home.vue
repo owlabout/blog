@@ -13,11 +13,12 @@ export default {
     pages() {
       return this.$site.pages
         .filter(page => {
-          return page.frontmatter.published;
+          return page.frontmatter.date;
         })
         .map(page => {
-          const dmy = page.frontmatter.published.match(/(\d+)/g);
-          page.published = new Date(dmy[2], dmy[1] - 1, dmy[0]);
+          console.log(page);
+          const dmy = page.frontmatter.date.match(/(\d+)/g);
+          page.published = new Date(dmy[0], dmy[1] - 1, dmy[2]);
           page.tags = [];
           return page;
         })

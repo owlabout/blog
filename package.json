@@ -10,9 +10,13 @@
   },
   "author": "Lukas Ehnle <lukas@owlabout.de>",
   "devDependencies": {
-    "vuepress": "^1.0.0-alpha.44"
+    "@vuepress/plugin-blog": "^1.0.0-alpha.47",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vuepress": "^1.0.0-alpha.47",
+    "vuepress-plugin-container": "^2.0.1"
   },
   "dependencies": {
-    "@vuepress/theme-default": "^1.0.0-alpha.44"
+    "@vuepress/theme-default": "^1.0.0-alpha.47"
   }
 }

@@ -1,16 +1,14 @@
 ---
-published: 24.02.2019
+date: 2019-02-24
 ---
 
 # Rsync Anwendungsfälle
 
 :::sticky
-
 ```bash
 # Kopiere symlinks als Dateien  -> Wenn lokal source gesymlinked, aber remote nicht.
 rsync -aL --exclude "symlinkedSourceDir" sourceDir user@example.com:/targetDir
 ```
-
 :::
 
 Mittels `rsync` werden Dateien/Ordner von einem Ausgangsordner in einen Zielordner synchronisiert. Ähnlich wie `cp` (kopieren), nur dass es auch über SSH funktioniert und viele weitere Optionen möglich sind.

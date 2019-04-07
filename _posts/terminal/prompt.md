@@ -1,5 +1,5 @@
 ---
-published: 15.03.2019
+date: 2019-03-15
 ---
 # Prompt / Eingabeaufforderung anpassen 
 

@@ -1,5 +1,6 @@
 ---
 Layout: Home
+permalink: "/"
 ---
 
 # OwlAbout Blog

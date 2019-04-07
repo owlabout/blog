@@ -15,8 +15,6 @@
 }
 </style>
 
-
-
 <script>
 export default {
   props: ["page"]

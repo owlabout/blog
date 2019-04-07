@@ -1,5 +1,5 @@
 ---
-published: 06.04.2019
+date: 2019-04-06
 ---
 
 # Emails versenden mit der eigenen Domain

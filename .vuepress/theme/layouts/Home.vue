@@ -16,7 +16,6 @@ export default {
           return page.frontmatter.date;
         })
         .map(page => {
-          console.log(page);
           const dmy = page.frontmatter.date.match(/(\d+)/g);
           page.published = new Date(dmy[0], dmy[1] - 1, dmy[2]);
           page.tags = [];

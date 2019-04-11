@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-container">
+  <div class="layout-container" :class="$page.frontmatter.Layout.toLowerCase()">
     <Navbar/>
     <component v-if="$page.frontmatter.Layout" :is="$page.frontmatter.Layout"/>
     <div v-else class="container">

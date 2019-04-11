@@ -1,5 +1,10 @@
 ---
 date: 2019-04-06
+author: Lukas E.
+tags:
+    - email
+    - devops
+    - mailgun
 ---
 
 # Emails versenden mit der eigenen Domain

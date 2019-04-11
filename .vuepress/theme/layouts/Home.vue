@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container excerpt-container">
     <Excerpt v-for="page in pages" :page="page"/>
   </div>
 </template>
@@ -18,7 +18,8 @@ export default {
         .map(page => {
           const dmy = page.frontmatter.date.match(/(\d+)/g);
           page.published = new Date(dmy[0], dmy[1] - 1, dmy[2]);
-          page.tags = [];
+          page.tags = page.frontmatter.tags;
+          page.author = page.frontmatter.author;
           return page;
         })
         .sort((a, b) => {
@@ -28,4 +29,19 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+  .excerpt-container {
+    display: flex;
+    justify-content: center;
+    // // background-color: #efefef;
+    // // min-height: calc(100vh - 49px);
+    // +footer {
+    //   background-color: #efefef;
+    // }
+  }
+  .layout-container.home {
+    background-color: #efefef;
+  }
+</style>
 

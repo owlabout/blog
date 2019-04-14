@@ -34,11 +34,7 @@ export default {
   .excerpt-container {
     display: flex;
     justify-content: center;
-    // // background-color: #efefef;
-    // // min-height: calc(100vh - 49px);
-    // +footer {
-    //   background-color: #efefef;
-    // }
+    flex-wrap: wrap;
   }
   .layout-container.home {
     background-color: #efefef;

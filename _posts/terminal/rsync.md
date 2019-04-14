@@ -1,5 +1,6 @@
 ---
 date: 2019-02-24
+author: Lukas E.
 ---
 
 # Rsync Anwendungsfälle

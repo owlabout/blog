@@ -40,6 +40,10 @@
     img {
       width: 100%;
       max-height: 100%;
+
+      &[src$='.svg'] {
+        padding: 1rem;
+      }
     }
   }
 

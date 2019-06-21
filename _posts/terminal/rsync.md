@@ -1,6 +1,9 @@
 ---
 date: 2019-02-24
-author: Lukas E.
+author: Lukas
+tags:
+    - devops
+    - terminal
 ---
 
 # Rsync Anwendungsfälle

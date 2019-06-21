@@ -1,18 +1,19 @@
 <template>
   <div class="excerpt">
-      <img class="ex-img" src="../../public/email-owl.png" alt="">
-      <div class="ex-content">
-        <div class="tags">
-          <span :class="tag" v-for="tag in page.tags"> {{tag}} </span>
-        </div>
-        <h3>{{page.title}}</h3>
-        <div class="ex-footer">
-          <span>von {{page.author}}</span>
-          <span>{{getPublishedDate()}}</span>
-        </div>
+    <div class="ex-img">
+      <img :src="thumbnail" alt>
+    </div>
+    <div class="ex-content">
+      <div class="tags">
+        <FontAwesomeIcon v-for="tag of page.tags" :icon="tag" :title="tag"/>
       </div>
-    <a class="ex-link" :href="page.path">    
-    </a>
+      <h3>{{page.title}}</h3>
+      <div class="ex-footer">
+        <span>von {{page.author}}</span>
+        <span>{{publishedDate}}</span>
+      </div>
+    </div>
+    <a class="ex-link" :href="page.path"></a>
   </div>
 </template>
 
@@ -25,16 +26,23 @@
   margin: 40px 20px;
   transition: 0.3s ease-in-out;
   position: relative;
-  // box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
-  // border: solid 1px #eaeaea;
+
   .ex-img {
+    background: linear-gradient(45deg, rgba(2, 206, 221, 1) 0%, rgba(37, 108, 112, 1) 100%);
     height: 150px;
     width: 220px;
     display: block;
     position: absolute;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      max-height: 100%;
+    }
   }
+
   .ex-content {
     position: absolute;
     top: 150px;
@@ -43,17 +51,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .tags {
       height: 30px;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       width: 100%;
       display: flex;
       align-items: center;
-      color: transparent;
-      span {
-      padding: 7px;
+      color: $grey;
+
+      svg {
+        margin: 7px;
       }
     }
+
     .ex-footer {
       height: 30px;
       width: 100%;
@@ -64,15 +75,17 @@
       padding: 0 7px;
       border-top: solid 1px #696969;
     }
+
     h3 {
       margin: 0;
       padding: 0 7px;
       color: $primary;
       text-align: center;
       font-size: 1.8rem;
-      font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+      font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
   }
+
   .ex-link {
     height: 300px;
     width: 220px;
@@ -81,26 +94,29 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
+
   &:hover {
     transform: scale(1.1);
   }
 }
-
-
-
-
 </style>
 
 <script>
 export default {
   props: ["page"],
-  methods: {
-    getPublishedDate() {
+  computed: {
+    publishedDate() {
       let dym = this.page.frontmatter.date.match(/(\d+)/g);
       let dateString = dym[2] + "." + dym[1] + "." + dym[0];
       return dateString;
+    },
+    thumbnail() {
+      const imagePath = this.page.frontmatter.thumbnail || "logo.svg";
+      return this.$withBase(`/${imagePath}`);
+    },
+    tags() {
+      return this.page.tags || [];
     }
   }
 };
 </script>
-

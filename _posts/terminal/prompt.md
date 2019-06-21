@@ -1,6 +1,8 @@
 ---
 date: 2019-03-15
-author: Lukas E.
+author: Lukas
+tags:
+    - terminal
 ---
 # Prompt / Eingabeaufforderung anpassen 
 

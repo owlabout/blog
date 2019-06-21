@@ -1,5 +1,8 @@
 ---
 date: 2019-04-13
+author: Lukas
+tags:
+    - devops
 ---
 
 # Cron-Jobs
@@ -38,4 +41,3 @@ Ein Beispiel für einen sinnvollen Cronjob ist die automatische Erneuerung von L
 # (Certbot erneuert Zertifikate nur falls sie bald auslaufen)
 # Der post-hook startet ggf. nach einem Update den nginx Server neu.
 ```
-

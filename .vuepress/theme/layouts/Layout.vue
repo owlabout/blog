@@ -57,6 +57,7 @@ export default {
         let lastIndex = 0;
         const stickyElements = document.querySelectorAll(".sticky");
         if (stickyElements.length <= 0) return;
+        this.$el.classList.add("has-sticky");
         const elements = [...stickyElements[0].parentNode.children];
         const numberOfElements = elements.length - 1;
 
@@ -96,7 +97,9 @@ export default {
 .content {
   max-width: 68rem;
   margin: 0 auto;
+}
 
+.has-sticky .content {
   @media screen and (min-width: 1050px) {
     max-width: initial;
     display: grid;

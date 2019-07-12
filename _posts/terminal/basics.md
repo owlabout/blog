@@ -8,7 +8,7 @@ tags:
 
 > learn enough command line to be dangerous
 
-A sentence I remembered trying to come up with an intro to this post. Because the question is, with all the beautiful graphical interfaces, why on earth would anyone want to learn using the command line?
+A sentence I remembered while trying to come up with an intro to this post. Because the question is, with all the beautiful graphical interfaces, why on earth would anyone want to learn using the command line?
 
 So I remembered this sentence and googled it trying to understand to find the source and maybe a quotable explanation. This is what came up:
 
@@ -25,14 +25,14 @@ So the motto should be **Learn enough command line not to be dangerous (to yours
 
 The question remains: Why bother to learn the CLI? For me there are a bunch of reasons.
 
-1. Sometimes there is no way around it. Some tools and programs do not have graphical interfaces. Also most servers don't have them.
-2. It's more efficient. This might not be the case in the beginning.
-3. Looks cool. Granted you'd have to be in a certain group of people that can be impressed with those comlex computer stuffs 😆
-4. probably more
+1. Sometimes there is no way around it. Some tools and programs do not have a graphical interface and most servers definitely don't have them.
+2. It's more efficient once you get used to it. This might not be the case in the beginning.
+3. It looks cool, especially when surrounded by the right people. Your brother the lawyer might be very impressed with all that complex computer stuff.
+4. It's easier than you'd expect.
 
 ## Goals
 
-So then, what are the goals? First of all is trying not to fuck up your system.
+So then, what are the goals? Number one is trying not to fuck up your system.
 Second, learn some basic commands to navigate the command line.
 And last but not least, know where to find more information.
 
@@ -42,19 +42,19 @@ Endangering yourself might happen faster than you think. And there are some basi
 
 **Rule 1: Do not [copy and paste][example]**
 
-This might not be super intuitiv. Considering that everybody googles stuff all the time. Because you will not be able to remember all the commands and options anyway. And if you have already found it, why not just copy and paste?
+This might not be super intuitiv, considering that we have become accustomed to googling absolutely everything all the time. Especially with command line, where you will never be able to remember all the commands and options anyway, it seems like the path of least resistance. If you have already found it, why not just copy and paste?
 
-The obious danger is not understanding the code you copy. So rule #2 is more rational.
+The obvious danger is not understanding the code you copy. So rule #2 is more rational.
 
 **Rule 2: Understand the code you execute**
 
-Do not execute code you don't understand. Especially not with sudo/administator permissions. Most code might be just fine. But you never know, so don' trust people on the interwebz.
+Do not execute code you don't understand. Especially not with sudo/administrator permissions. Most of the code you come accross will probably be perfectly safe. But you never know, so don' trust people on the interwebz.
 
 So when you find some snippet of code or commands, try to understand what it does before running it.
 
 If there are commands that are new to you, learn about them beforehand. For example using [explainshell.com](https://explainshell.com/), [man pages](https://en.wikipedia.org/wiki/Man_page) or [tldr](https://github.com/tldr-pages/tldr).
 
-Back to rule #1. Now you understood the code, why not just copy/paste it? The reason is basically [unicode](https://en.wikipedia.org/wiki/Unicode). More specific the code might not be what it seems. If you haven't yet tried the [example][example]. Copy and paste it to the devtools of your browser.
+Back to rule #1. Now you understood the code, why not just copy/paste it? The reason is basically [unicode](https://en.wikipedia.org/wiki/Unicode). More specifically, the code might not be what it seems. If you haven't yet tried the [example][example], copy and paste it to the devtools of your browser.
 
 ```js
 rеturn=([f])=>{eval(unescape(escape(f).replace(/u.{8}/g,'')))}
@@ -72,7 +72,7 @@ Surprised? I was. I still haven't fully figured out what's going on there. I kno
 
 **Rule 3: make backups**
 
-Even if you do (or think you do) understand the code you run. Something might go wrong. So just in case, make backups beforehand. E.g. of files you are changing. Or better yet, just have backups of your whole system.
+Even if you do (or think you do) understand the code you're running. Something might go wrong. So just in case, make backups beforehand. E.g. of files you are changing. Or better yet, just have backups of your whole system.
 
 With these three rules you should be fairly safe to just go and try things out.
 
@@ -80,10 +80,10 @@ With these three rules you should be fairly safe to just go and try things out.
 
 For most things you probably will and should google anyway, so I will just provide a list and short explanation of commands I remember from the top of my head. (Which means I use them pretty often.)
 
-The basic structure of commands is `command [subcommand] [options/flags] arguments`.
+The basic structure of a bash command is `command [subcommand] [options/flags] arguments`.
 
 Things surrounded with brackets are usually optional.
-Most commands have provide information to help you, when passed a `--help` flag
+Most commands provide information to help you, when passed a `--help` flag
 
 When you type a command and press `tab` you will get auto-completion, this also works for files and directories.
 

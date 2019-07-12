@@ -1,3 +1,9 @@
+---
+date: 2019-07-08
+author: Lukas
+tags:
+    - terminal
+---
 # Command Line Basics
 
 > learn enough command line to be dangerous

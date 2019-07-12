@@ -1,11 +1,11 @@
 <template>
-  <div class="layout-container" :class="$page.frontmatter.Layout.toLowerCase()">
-    <Navbar/>
-    <component v-if="$page.frontmatter.Layout" :is="$page.frontmatter.Layout"/>
+  <div class="layout-container" :class="layout.toLowerCase()">
+    <Navbar />
+    <component v-if="layout" :is="layout" />
     <div v-else class="container">
-      <Content ref="content"/>
+      <Content ref="content" />
     </div>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
@@ -17,9 +17,15 @@ import Home from "./Home.vue";
 import Footer from "./Footer.vue";
 import { themeConfig } from "../../config.js";
 
+import get from "lodash/get";
+
 export default {
   components: { Navbar, Home, Footer },
-
+  computed: {
+    layout() {
+      return get(this, "$page.frontmatter.Layout", "");
+    }
+  },
   methods: {
     addFavicon() {
       themeConfig.head.forEach(h => {
@@ -138,4 +144,3 @@ export default {
   padding-bottom: 70px;
 }
 </style>
-

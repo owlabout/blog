@@ -2,10 +2,10 @@
   <header>
     <div class="container">
       <router-link :to="$localePath" class="logo home-link">
-        <img src="../../public/logo.svg" alt="OwlAbout Logo">wlAbout
+        <img src="../../public/logo.svg" alt="OwlAbout Logo" />wlAbout
       </router-link>
-      <NavLinks class="can-hide"/>
-      <SearchBox v-if="$site.themeConfig.search !== false"/>
+      <!-- <NavLinks class="can-hide"/> -->
+      <!-- <SearchBox v-if="$site.themeConfig.search !== false"/> -->
     </div>
   </header>
 </template>
@@ -34,7 +34,7 @@ function css(el, property) {
 
 <style lang="stylus">
 header {
-  border-bottom: 4px solid $primary;
+  border-top: 4px solid $primary;
   box-shadow: 0 0 10px 4px $lightgrey;
   position: sticky;
   z-index: 10;
@@ -86,7 +86,7 @@ header nav.nav-links {
   }
 
   .repo-link {
-    line-height: inherit;  
+    line-height: inherit;
   }
 
   .nav-item a.nav-link {

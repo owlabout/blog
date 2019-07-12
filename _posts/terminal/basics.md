@@ -1,6 +1,7 @@
 ---
 date: 2019-07-08
 author: Lukas
+thumbnail: thumbs/command-line.svg
 tags:
     - terminal
 ---

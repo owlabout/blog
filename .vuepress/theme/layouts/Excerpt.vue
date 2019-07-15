@@ -31,7 +31,9 @@
     background: linear-gradient(45deg, rgba(2, 206, 221, 1) 0%, rgba(37, 108, 112, 1) 100%);
     height: 150px;
     width: 220px;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

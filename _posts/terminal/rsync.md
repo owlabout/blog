@@ -1,6 +1,7 @@
 ---
 date: 2019-02-24
 author: Lukas
+thumbnail: ./rsync.svg
 tags:
     - devops
     - terminal

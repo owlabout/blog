@@ -50,10 +50,13 @@ module.exports = {
     /**
      * customize markdown
      */
-    // config.module
-    //   .rule("markdown")
-    //   .use("frontmatter-url-loader")
-    //   .loader(require.resolve("./frontmatter-url-loader.js"))
-    //   .after("markdown-loader");
+    config.module
+      .rule("markdown")
+      .use("frontmatter-file-loader")
+      .loader(require.resolve("./frontmatter-file-loader.js"))
+      .options({
+        name: `assets/img/[name].[ext]?[hash:8]`
+      })
+      .after("markdown-loader");
   }
 };

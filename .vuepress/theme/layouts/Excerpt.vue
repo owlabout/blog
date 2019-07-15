@@ -1,11 +1,11 @@
 <template>
   <div class="excerpt">
     <div class="ex-img">
-      <img :src="thumbnail" alt>
+      <img :src="thumbnail" alt />
     </div>
     <div class="ex-content">
       <div class="tags">
-        <FontAwesomeIcon v-for="tag of page.tags" :icon="tag" :title="tag"/>
+        <FontAwesomeIcon v-for="tag of page.tags" :icon="tag" :title="tag" />
       </div>
       <h3>{{page.title}}</h3>
       <div class="ex-footer">
@@ -115,7 +115,11 @@ export default {
       return dateString;
     },
     thumbnail() {
-      const imagePath = this.page.frontmatter.thumbnail || "logo.svg";
+      let imagePath = this.page.frontmatter.thumbnail || "logo.svg";
+      if (imagePath.slice(0, 2) == "./") {
+        imagePath = `assets/img/${imagePath.slice(2)}`;
+      }
+      console.log(this);
       return this.$withBase(`/${imagePath}`);
     },
     tags() {

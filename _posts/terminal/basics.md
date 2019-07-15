@@ -1,10 +1,13 @@
 ---
 date: 2019-07-08
 author: Lukas
-thumbnail: thumbs/command-line.svg
+thumbnail: ./command-line.svg
+title: Command Line Basics
 tags:
     - terminal
 ---
+<Hero color="#2779b0" alt="Terminal Screenshot with an Illustration Person pointing at it" />
+
 # Command Line Basics
 
 > learn enough command line to be dangerous

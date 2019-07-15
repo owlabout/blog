@@ -39,5 +39,21 @@ module.exports = {
       }
     ]
   ],
-  evergreen: false
+  evergreen: false,
+  chainWebpack: (config, isServer) => {
+    config.module
+      .rule("svg")
+      .use("file-loader")
+      .options({
+        name: `assets/img/[name].[ext]?[hash:8]`
+      });
+    /**
+     * customize markdown
+     */
+    // config.module
+    //   .rule("markdown")
+    //   .use("frontmatter-url-loader")
+    //   .loader(require.resolve("./frontmatter-url-loader.js"))
+    //   .after("markdown-loader");
+  }
 };

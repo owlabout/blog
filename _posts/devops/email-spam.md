@@ -30,6 +30,7 @@ Dabei wird für die Domain von der eine Email gesendet wird ein DNS txt Eintrag 
 Dieser Eintrag enthält alle Server (Domains/IPs) die authorisiert sind Emails im Namen der Email-Domain zu senden.
 
 Es wird außerdem angegeben wie unauthorisierte Emails bevorzugt behandelt werden sollen.
+<!-- Wie wird das angegeben? Muss ich das angeben? Wo geb ich das an? -->
 
 ## DKIM
 
@@ -42,6 +43,7 @@ k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrrHhSmeUs0gfWL04DgtHF6hhaz0GKNRP
 DomainKeys Identified Mail beschreibt ein ganz ähnliches Verfahren zu SPF. Dabei wird allerdings ein Public-Key Verfahren verwendet.
 
 Im DNS TXT Eintrag wird ein öffentlicher Schlüssel hinterlegt. Jede versendete Email enthält eine mittels dem privaten Schlüssel erstellte Signatur, die der Empfänger mit dem öffentlichen Schlüssel verifizieren kann.
+<!-- Auch hier: wie mach ich das denn? kann ich den code oben irgendwo hin copy pasten? -->
 
 ## DMARC
 

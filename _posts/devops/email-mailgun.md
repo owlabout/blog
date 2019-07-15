@@ -20,8 +20,8 @@ Die Schritte hierfür sind:
 
 1. Account bei [Mailgun](https://mailgun.com) erstellen.
 2. Domain bei Mailgun anlegen.
-   - vermutlich die Root-Domain nutzen, auch wenn Mailgun anderes empfiehlt.
-   - darauf achten, das als Region "EU" ausgewählt ist. DSGVO und so.
+   - vermutlich die Root-Domain nutzen, auch wenn Mailgun anderes empfiehlt. (siehe [# Domain auswählen](#domain-auswahlen))
+   - darauf achten, dass als Region "EU" ausgewählt ist. DSGVO und so.
 3. Domain verifizieren und DNS Einträge anlegen
 
    - dafür einfach der Anleitung von Mailgun folgen
@@ -32,4 +32,5 @@ Die Schritte hierfür sind:
 
 Bei der Auswahl der Domain kommt es darauf an, ob man Marketing-Mails, Newsletter oder einfach "normale" Emails versenden möchte.
 
-Für "normale" Mails würde ich die Basis-Domain wählen. Mailgun empfiehlt das nicht zu tun. Hat aber in der FAQ dazu auch wiedersprüchliche Angaben.
+Für "normale" Mails würde ich die Root-Domain wählen. Mailgun empfiehlt das nicht zu tun. Hat aber in der FAQ dazu auch wiedersprüchliche Angaben.
+<!-- oder Basis-Domain. Suchs dir aus -->

@@ -8,9 +8,9 @@ tags:
 
 :::sticky Bash Prompt anpassen
 ```bash
-# Unser Standard Prompt
+# Auf den standard Prompt zurücksetzen
 export PS1="\[\e]0;\w: \u@\h\a\]\[\033[01;32m\]\h:[\033[01;34m\]\W \[\033[01;34m\]\u\[\033[00m\]\$ "
-# Screencasts
+# Prompt für Screencasts ändern
 export PS1="owl-tut:\W \u $ "
 
 # Möglicherweise müssen Farben aktiviert werden
@@ -37,5 +37,6 @@ Dabei sind Farben und spezielle Platzhalter möglich.
 |      | [weitere](https://wiki.ubuntuusers.de/Bash/Prompt/#Zeichenkette) |
 
 :::tip
-Auch der Titel des Konsolenfensters lässt anpassen.
+Auch der Titel des Konsolenfensters kann angepasst werden. 
+TODO: Erkärung oder Link
 :::

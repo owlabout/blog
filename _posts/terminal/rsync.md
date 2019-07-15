@@ -23,9 +23,8 @@ Unter anderem:
 - Dateien löschen, die im Ausgangsordner nicht vorhanden sind
 - Symbolische Links erhalten
 
-## Drupal 7 mit symlinked Source
+## Beispiel: Drupal 7 mit symlinked Source
 
-Ein Beispielszenario:
 Als Agentur betreut man mehrere Drupal 7 Webseiten, die alle up-to-date gehalten werden müssen.
 Im Falle eines Updates möchte man das Grundsystem nur einmal updaten.
 

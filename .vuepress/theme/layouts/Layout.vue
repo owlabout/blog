@@ -23,7 +23,6 @@ export default {
   components: { Navbar, Home, Footer },
   computed: {
     layout() {
-      console.log(this);
       return get(this, "$page.frontmatter.Layout", "");
     }
   },

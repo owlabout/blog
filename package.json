@@ -13,14 +13,14 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/vue-fontawesome": "^0.1.6",
-    "@vuepress/plugin-blog": "^1.0.0-alpha.47",
-    "node-sass": "^4.11.0",
+    "@vuepress/plugin-blog": "^1.2.4",
+    "node-sass": "^4.12.0",
     "raw-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
-    "vuepress": "^1.0.0-alpha.47",
-    "vuepress-plugin-container": "^2.0.1"
+    "vuepress": "^1.0.2",
+    "vuepress-plugin-container": "^2.0.2"
   },
   "dependencies": {
-    "@vuepress/theme-default": "^1.0.0-alpha.47"
+    "@vuepress/theme-default": "^1.0.2"
   }
 }

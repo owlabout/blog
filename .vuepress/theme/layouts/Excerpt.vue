@@ -121,7 +121,6 @@ export default {
       if (imagePath.slice(0, 2) == "./") {
         imagePath = `assets/img/${imagePath.slice(2)}`;
       }
-      console.log(this);
       return this.$withBase(`/${imagePath}`);
     },
     tags() {

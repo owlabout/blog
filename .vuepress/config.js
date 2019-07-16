@@ -9,6 +9,7 @@ module.exports = {
       lang: "de-DE"
     }
   },
+  permalink: "/:year/:month/:slug",
   plugins: [
     [
       "container",
@@ -30,12 +31,6 @@ module.exports = {
           if (title) title = `<p class="caption">${title}</p>`;
           return "${title}</div>\n";
         }
-      }
-    ],
-    [
-      "@vuepress/blog",
-      {
-        permalink: "/:year/:month/:slug"
       }
     ]
   ],

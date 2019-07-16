@@ -1,10 +1,12 @@
 ---
 date: 2019-04-13
 author: Lukas
+thumbnail: ./owlAboutProcess.svg
+title: Cron-Jobs
 tags:
     - devops
 ---
-
+<Hero color="#EEE857" alt="Owl showing a circular process" />
 # Cron-Jobs
 
 :::sticky Cron-Job anlegen

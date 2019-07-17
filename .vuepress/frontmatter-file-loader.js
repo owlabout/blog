@@ -18,19 +18,16 @@ module.exports = function(src) {
       const context = Object.assign({}, this, {
         resourcePath: file
       });
-      Object.assign(context.query, {
-        emitFile: true
-      });
       const packed = fileLoader.call(context, fs.readFileSync(file));
       /**
        * For now do not change src, since vuepress loads the file instead of src anyway
        */
-      // data.thumbnail = packed
-      //   .split("+")[1]
-      //   .trim()
-      //   .slice(1, -2);
+      data.thumbnail = packed
+        .split("+")[1]
+        .trim()
+        .slice(1, -2);
 
-      // return matter.stringify({ content }, data);
+      return matter.stringify({ content }, data);
     } catch (e) {
       console.log(e);
     }

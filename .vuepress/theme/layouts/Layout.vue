@@ -1,7 +1,7 @@
 <template>
-  <div class="layout-container" :class="layout.toLowerCase()">
+  <div class="layout-container" :class="{'layout-home': isHome}">
     <Navbar />
-    <component v-if="layout" :is="layout" />
+    <component v-if="isHome" :is="'Home'" />
     <div v-else class="container">
       <Content ref="content" />
     </div>
@@ -21,10 +21,10 @@ import get from "lodash/get";
 
 export default {
   components: { Navbar, Home, Footer },
-  computed: {
-    layout() {
-      return get(this, "$page.frontmatter.Layout", "");
-    }
+  data() {
+    return {
+      isHome: false
+    };
   },
   methods: {
     addFavicon() {
@@ -76,6 +76,9 @@ export default {
         subtree: true
       });
     }
+  },
+  created() {
+    this.isHome = get(this, "$page.frontmatter.home", false);
   },
   mounted() {
     window.addEventListener("scroll", this.onScroll);

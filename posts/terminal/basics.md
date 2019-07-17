@@ -6,6 +6,7 @@ title: Command Line Basics
 tags:
     - terminal
 ---
+
 <Hero color="#2779b0" alt="Terminal Screenshot with an Illustration Person pointing at it" />
 
 # Command Line Basics

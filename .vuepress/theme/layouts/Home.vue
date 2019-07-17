@@ -1,6 +1,6 @@
 <template>
   <div class="container excerpt-container">
-    <Excerpt v-for="page in pages" :page="page"/>
+    <Excerpt v-for="page in pages" :page="page" />
   </div>
 </template>
 
@@ -31,13 +31,12 @@ export default {
 </script>
 
 <style lang="scss">
-  .excerpt-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .layout-container.home {
-    background-color: #efefef;
-  }
+.excerpt-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.layout-container.layout-home {
+  background-color: #efefef;
+}
 </style>
-

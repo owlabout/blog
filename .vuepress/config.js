@@ -1,4 +1,5 @@
 module.exports = {
+  title: "OwlAbout Blog",
   themeConfig: {
     head: [["link", { rel: "icon", href: `/favicon.png` }]],
     nav: [{ text: "Neuste", link: "/" }, { text: "Tags", link: "/tags/" }],
@@ -50,7 +51,8 @@ module.exports = {
       .use("frontmatter-file-loader")
       .loader(require.resolve("./frontmatter-file-loader.js"))
       .options({
-        name: `assets/img/[name].[ext]?[hash:8]`
+        name: `assets/img/[name].[ext]?[hash:8]`,
+        emitFile: true
       })
       .after("markdown-loader");
   }

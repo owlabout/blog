@@ -37,7 +37,8 @@ export default {
   .hero {
     display: block;
     max-height: 400px;
-    max-width: 740px;
+    width: 740px;
+    max-width: 100%;
     margin: 0 auto;
   }
 }

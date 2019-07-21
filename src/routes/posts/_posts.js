@@ -1,56 +1,67 @@
 import fs from "fs";
 import path from "path";
+import glob from "tiny-glob";
+
+const matter = require("gray-matter");
 const md = require("markdown-it")();
 
-export function getPosts() {
-  const slugs = fs
-    .readdirSync("posts")
-    .filter(file => path.extname(file) === ".md")
-    .map(file => file.slice(0, -3));
+export async function getPosts() {
+  const files = await glob("posts/**/*.md");
 
-  console.log("hello");
-  console.log(slugs);
+  return files
+    .map(loadPost)
+    .filter(p => !!p.metadata.date)
+    .map(p => {
+      const date = p.metadata.date
+        .toISOString()
+        .slice(0, 10)
+        .split("-");
 
-  return slugs.map(getPost).sort((a, b) => {
-    return a.metadata.pubdate < b.metadata.pubdate ? 1 : -1;
-  });
+      const slug = path.basename(p.metadata.file, ".md");
+      p.metadata.slug = `${date[0]}_${date[1]}_${slug}`;
+      p.metadata.dateString = `${date[2]}.${date[1]}.${date[0]}`;
+      return p;
+    })
+    .sort((a, b) => {
+      return a.metadata.date < b.metadata.date ? 1 : -1;
+    });
 }
 
-export function getPost(slug) {
-  console.log("getPost");
-  console.log(slug);
+export async function getPost(slug) {
+  try {
+    const posts = await getPosts();
+    return posts.find(p => p.metadata.slug == slug);
+  } catch (e) {
+    console.log(e);
+  }
+  return null;
+}
 
-  const file = `posts/${slug}.md`;
+function loadPost(file) {
   if (!fs.existsSync(file)) return null;
-
   const markdown = fs.readFileSync(file, "utf-8");
-
   const { content, metadata } = process_markdown(markdown);
-
-  const date = new Date(`${metadata.pubdate} EDT`); // cheeky hack
-  metadata.dateString = date.toDateString();
-
   const html = md.render(content);
+  metadata.file = file;
+  const title = metadata.title ? metadata.title : extractTitle(html);
 
   return {
-    slug,
+    title,
     metadata,
     html
   };
 }
 
 function process_markdown(markdown) {
-  const match = /---\n([\s\S]+?)\n---/.exec(markdown);
-  const frontMatter = match[1];
-  const content = markdown.slice(match[0].length);
+  const { content, data } = matter(markdown);
 
-  const metadata = {};
-  frontMatter.split("\n").forEach(pair => {
-    const colonIndex = pair.indexOf(":");
-    metadata[pair.slice(0, colonIndex).trim()] = pair
-      .slice(colonIndex + 1)
-      .trim();
-  });
+  return { metadata: data, content };
+}
 
-  return { metadata, content };
+function extractTitle(html) {
+  const match = html.match(/<h1>(.*)<\/h1>/);
+  if (match) {
+    return match[1];
+  }
+  return "";
 }

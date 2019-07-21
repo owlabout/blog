@@ -2,11 +2,11 @@ import { getPost } from "./_posts.js";
 
 const lookup = new Map();
 
-export function get(req, res, next) {
+export async function get(req, res, next) {
   const { slug } = req.params;
 
   if (process.env.NODE_ENV !== "production" || !lookup.has(slug)) {
-    const post = getPost(slug);
+    const post = await getPost(slug);
     lookup.set(slug, JSON.stringify(post));
   }
 

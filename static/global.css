@@ -57,9 +57,3 @@ code {
   padding: 0.3rem 0.6rem;
   border-radius: 0.2rem;
 }
-
-@media (min-width: 400px) {
-  body {
-    font-size: 10px;
-  }
-}

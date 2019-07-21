@@ -1,5 +1,5 @@
 <script>
-  import { meta } from "posts";
+  // import { meta } from "posts";
 </script>
 
 <style>
@@ -29,6 +29,6 @@
   </div>
 </header>
 
-{#each meta as post}
+<!-- {#each meta as post}
   <a href={post.link}>{post.title}</a>
-{/each}
+{/each} -->

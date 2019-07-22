@@ -1,4 +1,6 @@
 <script>
+  import Icon from "./Icon.svelte";
+
   export let post;
 </script>
 
@@ -45,7 +47,10 @@
     font-size: 1.6rem;
     display: flex;
     align-items: center;
-    color: var(--color-text);
+    color: var(--color-grey);
+  }
+  .tags :global(svg) {
+    margin: 7px;
   }
 
   h3 {
@@ -76,7 +81,7 @@
   </a>
   <div class="tags">
     {#each post.tags as tag}
-      <!-- <FontAwesomeIcon icon={tag} title={tag} /> -->
+      <Icon icon={tag} title={tag} />
     {/each}
   </div>
   <a rel="prefetch" href={post.link}>

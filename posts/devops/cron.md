@@ -1,7 +1,7 @@
 ---
 date: 2019-04-13
 author: Lukas
-thumbnail: ./owlAboutProcess.svg
+thumbnail: ./process.svg
 title: Cron-Jobs
 tags:
     - devops

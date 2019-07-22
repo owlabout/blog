@@ -20,6 +20,7 @@
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/runtime": "^7.5.5",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "gray-matter": "^4.0.2",
     "hasha": "^5.0.0",
     "markdown-it": "^9.0.1",

@@ -5,7 +5,6 @@ thumbnail: './owl-email.svg'
 tags:
     - email
     - devops
-    - mailgun
 ---
 
 # Wie verhindere ich, dass meine Emails im Spam landen?

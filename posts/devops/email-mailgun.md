@@ -5,7 +5,6 @@ thumbnail: './owl-email.svg'
 tags:
     - email
     - devops
-    - mailgun
 ---
 
 # Emails versenden mit der eigenen Domain

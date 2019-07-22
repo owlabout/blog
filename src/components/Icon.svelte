@@ -14,6 +14,7 @@
   };
 
   export let icon;
+  export let label;
   let path = [];
   let viewBox = "";
   $: viewBox = "0 0 " + icons[icon].icon[0] + " " + icons[icon].icon[1];
@@ -27,6 +28,12 @@
   }
 </style>
 
-<svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" {viewBox}>
+<svg
+  aria-label={label}
+  aria-hidden="true"
+  role="img"
+  xmlns="http://www.w3.org/2000/svg"
+  {viewBox}>
+  <title>{label}</title>
   <path fill="currentColor" d={path} />
 </svg>

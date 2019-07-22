@@ -79,9 +79,9 @@
   <a class="thumbnail" rel="prefetch" href={post.link} role="presentation">
     <img src={post.thumbnail} role="presentation" alt="Post Thumbnail" />
   </a>
-  <div class="tags">
+  <div aria-label="Tags" class="tags">
     {#each post.tags as tag}
-      <Icon icon={tag} title={tag} />
+      <Icon icon={tag} label={tag} />
     {/each}
   </div>
   <a rel="prefetch" href={post.link}>

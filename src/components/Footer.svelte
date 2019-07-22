@@ -1,6 +1,10 @@
 <style>
+  :global(#sapper) {
+    position: relative;
+    padding-bottom: 80px;
+  }
   footer {
-    height: 55px;
+    height: 80px;
     width: 100%;
     position: absolute;
     bottom: 0;

@@ -21,6 +21,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/runtime": "^7.5.5",
     "gray-matter": "^4.0.2",
+    "hasha": "^5.0.0",
     "markdown-it": "^9.0.1",
     "markdown-it-container": "^2.0.0",
     "ndb": "^1.1.4",

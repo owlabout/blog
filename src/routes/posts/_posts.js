@@ -1,11 +1,20 @@
 import fs from "fs";
-import path from "path";
+import { basename } from "path";
+import { processPost } from "post-assets";
 import glob from "tiny-glob";
 
 const matter = require("gray-matter");
 const md = require("markdown-it")();
+md.use(require("markdown-it-container"), "container", {
+  type: "sticky",
+  before: `<div class="sticky"><div class="custom-block">\n`,
+  after(title) {
+    if (title) title = `<p class="caption">${title}</p>`;
+    return `${title}</div></div>\n`;
+  }
+});
 
-export async function getPosts() {
+async function getPosts() {
   const files = await glob("posts/**/*.md");
 
   return files
@@ -17,14 +26,30 @@ export async function getPosts() {
         .slice(0, 10)
         .split("-");
 
-      const slug = path.basename(p.metadata.file, ".md");
+      const slug = basename(p.metadata.file, ".md");
       p.metadata.slug = `${date[0]}_${date[1]}_${slug}`;
+      p.metadata.link = `/${date[0]}/${date[1]}/${slug}`;
       p.metadata.dateString = `${date[2]}.${date[1]}.${date[0]}`;
+
       return p;
     })
     .sort((a, b) => {
       return a.metadata.date < b.metadata.date ? 1 : -1;
     });
+}
+
+export async function getPostsMetadata() {
+  const posts = await getPosts();
+  return posts.map(p => {
+    return {
+      title: p.title,
+      thumbnail: p.metadata.thumbnail || "/images/logo.svg",
+      link: p.metadata.link,
+      dateString: p.metadata.dateString,
+      author: p.metadata.author,
+      tags: p.metadata.tags
+    };
+  });
 }
 
 export async function getPost(slug) {
@@ -38,8 +63,9 @@ export async function getPost(slug) {
 }
 
 function loadPost(file) {
-  if (!fs.existsSync(file)) return null;
-  const markdown = fs.readFileSync(file, "utf-8");
+  const markdown = processPost(file);
+  if (!markdown) return null;
+
   const { content, metadata } = process_markdown(markdown);
   const html = md.render(content);
   metadata.file = file;

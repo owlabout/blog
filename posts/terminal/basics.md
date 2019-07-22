@@ -37,6 +37,8 @@ The question remains: Why bother to learn the CLI? For me there are a bunch of r
 
 ## Goals
 
+![test](./command-line.svg)
+
 So then, what are the goals? Number one is trying not to fuck up your system.
 Second, learn some basic commands to navigate the command line.
 And last but not least, know where to find more information.

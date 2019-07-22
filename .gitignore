@@ -3,3 +3,6 @@
 /src/node_modules/
 /__sapper__/
 /package-lock.json
+/static/assets/*
+!/static/assets/.gitkeep
+.vscode

@@ -1,18 +1,24 @@
-import fs from "fs";
 import { basename } from "path";
 import { processPost } from "post-assets";
 import glob from "tiny-glob";
+import mdSticky from "md-sticky";
 
 const matter = require("gray-matter");
-const md = require("markdown-it")();
-md.use(require("markdown-it-container"), "container", {
-  type: "sticky",
-  before: `<div class="sticky"><div class="custom-block">\n`,
-  after(title) {
-    if (title) title = `<p class="caption">${title}</p>`;
-    return `${title}</div></div>\n`;
+const Prism = require("prismjs");
+var loadLanguages = require("prismjs/components/");
+loadLanguages(["bash"]);
+const md = require("markdown-it")({
+  highlight: function(str, lang) {
+    if (lang) {
+      try {
+        return Prism.highlight(str, Prism.languages[lang], lang);
+      } catch (__) {}
+    }
+
+    return ""; // use external default escaping
   }
 });
+md.use(mdSticky);
 
 async function getPosts() {
   const files = await glob("posts/**/*.md");

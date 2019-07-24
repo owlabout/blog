@@ -20,6 +20,11 @@
   :global(body) {
     background: #efefef;
   }
+  :global(.container) {
+    width: 86%;
+    max-width: 102rem;
+    margin: 0 auto;
+  }
   .container {
     display: flex;
     flex-wrap: wrap;

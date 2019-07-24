@@ -1,6 +1,8 @@
 .DS_Store
 /node_modules/
-/src/node_modules/
+/src/node_modules/*
+!/src/node_modules/md-sticky.js
+!/src/node_modules/post-assets.js
 /__sapper__/
 /package-lock.json
 /static/assets/*

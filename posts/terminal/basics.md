@@ -1,6 +1,7 @@
 ---
 date: 2019-07-08
 author: Lukas
+lang: en
 thumbnail: ./command-line.svg
 title: Command Line Basics
 tags:
@@ -132,5 +133,7 @@ brew # macos
 npm # for node packages
 pip # for python packages
 ```
+
+TODO: History
 
 Some of these can be annoying to type out all the time. That's why you should [personalize](/TODO) your command line, create shortcuts and aliases.

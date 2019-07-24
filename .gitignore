@@ -3,6 +3,7 @@
 /src/node_modules/*
 !/src/node_modules/md-sticky.js
 !/src/node_modules/post-assets.js
+!/src/node_modules/md-container.js
 /__sapper__/
 /package-lock.json
 /static/assets/*

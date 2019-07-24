@@ -1,5 +1,10 @@
-node_modules
-package-lock.json
-.vuepress/dist
 .DS_Store
+/node_modules/
+/src/node_modules/*
+!/src/node_modules/md-sticky.js
+!/src/node_modules/post-assets.js
+/__sapper__/
+/package-lock.json
+/static/assets/*
+!/static/assets/.gitkeep
 .vscode

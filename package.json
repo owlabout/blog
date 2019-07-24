@@ -1,26 +1,44 @@
 {
-  "name": "owl-blog",
-  "version": "1.0.0",
+  "name": "owlabout-blog",
   "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
   "scripts": {
-    "start": "vuepress dev",
-    "build": "vuepress build",
+    "dev": "sapper dev",
+    "build": "sapper build --legacy",
+    "export": "sapper export --legacy",
+    "start": "node __sapper__/build",
+    "debug": "ndb npx sapper dev",
     "deploy": "./deploy.sh"
   },
-  "author": "Lukas Ehnle <lukas@owlabout.de>",
-  "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.19",
-    "@fortawesome/free-solid-svg-icons": "^5.9.0",
-    "@fortawesome/vue-fontawesome": "^0.1.6",
-    "@vuepress/plugin-blog": "^1.2.4",
-    "node-sass": "^4.12.0",
-    "raw-loader": "^3.0.0",
-    "sass-loader": "^7.1.0",
-    "vuepress": "^1.0.2",
-    "vuepress-plugin-container": "^2.0.2"
-  },
   "dependencies": {
-    "@vuepress/theme-default": "^1.0.2"
+    "compression": "^1.7.1",
+    "polka": "^0.5.0",
+    "prismjs": "^1.17.1",
+    "sirv": "^0.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "gray-matter": "^4.0.2",
+    "hasha": "^5.0.0",
+    "markdown-it": "^9.0.1",
+    "markdown-it-container": "^2.0.0",
+    "ndb": "^1.1.4",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^1.17.0",
+    "rollup-plugin-babel": "^4.0.2",
+    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-svelte": "^5.0.1",
+    "rollup-plugin-terser": "^4.0.4",
+    "sapper": "^0.27.0",
+    "slug": "^1.1.0",
+    "svelte": "^3.6.8",
+    "tiny-glob": "^0.2.6"
   }
 }

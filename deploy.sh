@@ -4,7 +4,7 @@
 set -e
 
 # navigate into the build output directory
-cd .vuepress/dist
+cd __sapper__/export
 
 # if you are deploying to a custom domain
 echo 'blog.owlabout.de' > CNAME

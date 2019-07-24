@@ -1,8 +1,10 @@
 ---
 date: 2019-03-15
 author: Lukas
+thumbnail: './command-line.svg'
 tags:
     - terminal
+description: Übersicht der Konfigurationsmöglichkeiten für Terminal Prompts
 ---
 # Prompt / Eingabeaufforderung anpassen 
 

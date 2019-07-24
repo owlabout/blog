@@ -1,11 +1,10 @@
 ---
 date: 2019-04-06
 author: Lukas
-thumbnail: 'thumbs/email-owl.png'
+thumbnail: './owl-email.svg'
 tags:
     - email
     - devops
-    - mailgun
 ---
 
 # Wie verhindere ich, dass meine Emails im Spam landen?

@@ -1,13 +1,16 @@
 ---
 date: 2019-07-08
 author: Lukas
+lang: en
 thumbnail: ./command-line.svg
 title: Command Line Basics
 tags:
     - terminal
 ---
 
-<Hero color="#2779b0" alt="Terminal Screenshot with an Illustration Person pointing at it" />
+:::hero #2779b0
+![Terminal Screenshot with an Illustration Person pointing at it](./command-line.svg)
+:::
 
 # Command Line Basics
 
@@ -103,7 +106,12 @@ Nano is closed by pressing `ctrl + x`
 Sometimes you also just
 
 ```bash
-man command # open the manual for a command
+history # shows you the last commands you entered
+grep [filter] # filters the input by a filter
+| # < is called pipe and allows you to give the output of a command as inuput to another command
+history | grep rsync # search through the history of commands for rsync
+# this is very useful when you don't remember the exact syntax of a command you already used
+man # open the manual for a command
 man ls # close by pressing 'q'
 
 ls [path] [options]# list the current or given directory contents
@@ -118,6 +126,7 @@ mv from/file1 [from/file2] to # move one or more files to another directory
 cp from/file1 [from/file2] to # copy one or more files to another directory
 
 sudo command # run command with administrator rights, usually asks for password
+# be careful using this
 
 # install packages on different systems
 apt-get install # debian-based

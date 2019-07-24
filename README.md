@@ -1,12 +1,5 @@
----
-home: true
-permalink: "/"
----
-
 # OwlAbout Blog
 
-Code und sonstiges dokumentationswürdiges
+Blog zu Themen aus den Bereichen Javascript, Vue, Svelte, PHP, Symfony und Softwareentwicklung allgemein.
 
-:::sticky
-joho
-:::
+[Sapper](https://sapper.svelte.dev/) App statically exported and hosted on [github pages](https://pages.github.com/)

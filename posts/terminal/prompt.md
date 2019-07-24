@@ -4,8 +4,7 @@ author: Lukas
 thumbnail: './command-line.svg'
 tags:
     - terminal
-meta:
-  description: Übersicht der Konfigurationsmöglichkeiten für Terminal Prompts
+description: Übersicht der Konfigurationsmöglichkeiten für Terminal Prompts
 ---
 # Prompt / Eingabeaufforderung anpassen 
 

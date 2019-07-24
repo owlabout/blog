@@ -85,8 +85,8 @@
 
 <svelte:head>
   <title>{post.title}</title>
-  {#if post.metadata.meta.description}
-    <meta name="Description" content={post.metadata.meta.description} />
+  {#if post.metadata.description}
+    <meta name="Description" content={post.metadata.description} />
   {/if}
 </svelte:head>
 

@@ -35,9 +35,14 @@ async function getPosts() {
         .split("-");
 
       const slug = basename(p.metadata.file, ".md");
-      p.metadata.slug = slug;
-      p.metadata.link = `/posts/${date[0]}/${date[1]}/${slug}`;
-      p.metadata.dateString = `${date[2]}.${date[1]}.${date[0]}`;
+      p.metadata = {
+        // defaults
+        slug,
+        link: `/posts/${date[0]}/${date[1]}/${slug}`,
+        dateString: `${date[2]}.${date[1]}.${date[0]}`,
+        // spread to overwrite
+        ...p.metadata
+      };
       return p;
     })
     .sort((a, b) => {

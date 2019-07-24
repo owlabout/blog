@@ -40,6 +40,10 @@
 
 <svelte:head>
   <title>OwlAbout Blog</title>
+  <meta
+    name="Description"
+    content="Blog zu Themen aus den Bereichen Javascript, Vue, Svelte, PHP,
+    Symfony und Softwareentwicklung allgemein." />
 </svelte:head>
 
 <div class="container">

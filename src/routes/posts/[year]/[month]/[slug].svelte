@@ -41,12 +41,27 @@
     margin: 0 auto;
     position: relative;
   }
+
+  .post :global(a) {
+    color: var(--color-lightred);
+  }
+  .post :global(a:hover) {
+    color: var(--color-primary);
+  }
+
   .post :global(ul) {
     line-height: 1.5;
   }
   .post :global(li) {
     margin: 0 0 0.5em 0;
   }
+
+  :global(.sticky) {
+    line-height: 1;
+    text-align: center;
+    color: var(--color-lightgrey);
+  }
+
   @media screen and (min-width: 1060px) {
     .has-sticky {
       margin-right: 0;
@@ -70,6 +85,9 @@
 
 <svelte:head>
   <title>{post.title}</title>
+  {#if post.metadata.meta.description}
+    <meta name="Description" content={post.metadata.meta.description} />
+  {/if}
 </svelte:head>
 
 <div class="container">

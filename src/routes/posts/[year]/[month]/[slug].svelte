@@ -28,11 +28,11 @@
 <style>
   :global(.layout__posts .container) {
     padding: 0 2rem;
-    max-width: 136rem;
+    max-width: 140rem;
     margin: 0 auto;
   }
   :global(.sticky__container) {
-    max-width: 136rem;
+    max-width: 140rem;
   }
   .post {
     display: flex;

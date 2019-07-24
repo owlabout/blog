@@ -9,14 +9,22 @@
 <style>
   :global(.hero__container) {
     --color-hero: var(--color-lightred);
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     background: linear-gradient(45deg, var(--color-hero), transparent);
+    /* Full width is insanely hard to get right */
+    width: 100vw;
+    align-self: center;
   }
-  :global(.has-sticky .hero__container) {
-    left: 0;
+  @media screen and (min-width: 1060px) {
+    :global(.has-sticky .hero__container) {
+      align-self: flex-end;
+      margin-right: -2rem;
+    }
+  }
+  @media screen and (min-width: 1400px) {
+    :global(.has-sticky .hero__container) {
+      align-self: flex-start;
+      transform: translateX(-50vw);
+    }
   }
   :global(.hero__container img) {
     display: block;

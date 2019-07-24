@@ -33,10 +33,9 @@ async function getPosts() {
         .split("-");
 
       const slug = basename(p.metadata.file, ".md");
-      p.metadata.slug = `${date[0]}_${date[1]}_${slug}`;
-      p.metadata.link = `/${date[0]}/${date[1]}/${slug}`;
+      p.metadata.slug = slug;
+      p.metadata.link = `/posts/${date[0]}/${date[1]}/${slug}`;
       p.metadata.dateString = `${date[2]}.${date[1]}.${date[0]}`;
-
       return p;
     })
     .sort((a, b) => {
@@ -49,19 +48,16 @@ export async function getPostsMetadata() {
   return posts.map(p => {
     return {
       title: p.title,
-      thumbnail: p.metadata.thumbnail || "/images/logo.svg",
-      link: p.metadata.link,
-      dateString: p.metadata.dateString,
-      author: p.metadata.author,
-      tags: p.metadata.tags
+      thumbnail: "/images/logo.svg",
+      ...p.metadata
     };
   });
 }
 
-export async function getPost(slug) {
+export async function getPost(link) {
   try {
     const posts = await getPosts();
-    return posts.find(p => p.metadata.slug == slug);
+    return posts.find(p => p.metadata.link == link);
   } catch (e) {
     console.log(e);
   }

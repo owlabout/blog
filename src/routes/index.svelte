@@ -11,16 +11,22 @@
 </script>
 
 <script>
+  import { onMount } from "svelte";
+  import { lang } from "./_layout.svelte";
   import Excerpt from "../components/Excerpt.svelte";
 
   export let posts;
+
+  onMount(() => {
+    lang.set("de");
+  });
 </script>
 
 <style>
-  :global(body) {
+  :global(.layout__start) {
     background: #efefef;
   }
-  :global(.container) {
+  :global(.layout__start .container) {
     width: 86%;
     max-width: 102rem;
     margin: 0 auto;

@@ -1,5 +1,5 @@
 <style>
-  :global(#sapper) {
+  :global(.layout) {
     position: relative;
     padding-bottom: 80px;
     min-height: 100vh;
@@ -18,7 +18,6 @@
   }
 
   footer img {
-    width: 45px;
     height: 45px;
   }
 

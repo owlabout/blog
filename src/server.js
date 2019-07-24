@@ -11,13 +11,6 @@ polka() // You can also use Express
   .use(
     compression({ threshold: 0 }),
     sirv("static", { dev }),
-    (req, res, next) => {
-      const parts = req.originalUrl.split("/");
-      if (parts.length === 4 && parseInt(parts[1]) > 2018) {
-        req.path = `/posts/${parts[1]}_${parts[2]}_${parts[3]}`;
-      }
-      next();
-    },
     sapper.middleware()
   )
   .listen(PORT, err => {

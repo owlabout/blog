@@ -1,6 +1,7 @@
 <script context="module">
   export async function preload({ params, query }) {
-    const res = await this.fetch(`posts/${params.slug}.json`);
+    const { year, month, slug } = params;
+    const res = await this.fetch(`posts/${year}/${month}/${slug}.json`);
     const data = await res.json();
     if (res.status === 200) {
       return { post: data };
@@ -11,13 +12,20 @@
 </script>
 
 <script>
+  import { onMount } from "svelte";
+  import { lang } from "../../../_layout.svelte";
+
   export let post;
 
   $: sticky = post.html.indexOf("sticky__container") > 0;
+
+  onMount(() => {
+    lang.set(post.metadata.lang);
+  });
 </script>
 
 <style>
-  :global(.container) {
+  :global(.layout__posts .container) {
     padding: 0 2rem;
     max-width: 136rem;
     margin: 0 auto;
@@ -31,11 +39,6 @@
     max-width: 68rem;
     margin: 0 auto;
     position: relative;
-  }
-
-  .post :global(h2) {
-    font-size: 1.4em;
-    font-weight: 500;
   }
   .post :global(ul) {
     line-height: 1.5;

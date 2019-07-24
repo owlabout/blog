@@ -54,6 +54,7 @@
   }
 
   h3 {
+    font-family: inherit;
     margin: 0;
     padding: 7px;
     color: var(--color-primary);
@@ -71,7 +72,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 7px;
-    border-top: solid 1px var(--color-grey);
   }
 </style>
 

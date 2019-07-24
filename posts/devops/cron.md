@@ -6,7 +6,11 @@ title: Cron-Jobs
 tags:
     - devops
 ---
-<Hero color="#EEE857" alt="Owl showing a circular process" />
+
+:::hero #EEE857
+![Owl showing a circular process](./process.svg)
+:::
+
 # Cron-Jobs
 
 :::sticky Cron-Job anlegen

@@ -2,6 +2,7 @@ import { basename } from "path";
 import { processPost } from "post-assets";
 import glob from "tiny-glob";
 import mdSticky from "md-sticky";
+import mdContainer from "md-container";
 
 const matter = require("gray-matter");
 const Prism = require("prismjs");
@@ -19,6 +20,7 @@ const md = require("markdown-it")({
   }
 });
 md.use(mdSticky);
+md.use(mdContainer);
 
 async function getPosts() {
   const files = await glob("posts/**/*.md");

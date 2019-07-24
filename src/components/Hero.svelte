@@ -7,24 +7,25 @@
 </script>
 
 <style>
-  div {
+  :global(.hero__container) {
     --color-hero: var(--color-lightred);
     width: 100vw;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: -2rem !important;
-    background: linear-gradient(-45deg, var(--color-hero), transparent);
+    background: linear-gradient(45deg, var(--color-hero), transparent);
   }
-  img {
+  :global(.has-sticky .hero__container) {
+    left: 0;
+  }
+  :global(.hero__container img) {
     display: block;
-    max-height: 400px;
-    width: 740px;
+    height: 400px;
     max-width: 100%;
     margin: 0 auto;
   }
 </style>
 
-<div {style}>
+<div class="hero__container" {style}>
   <img {src} {alt} />
 </div>

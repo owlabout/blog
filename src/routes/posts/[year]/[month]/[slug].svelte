@@ -13,6 +13,7 @@
 
 <script>
   import { onMount } from "svelte";
+  import Hero from "../../../../components/Hero.svelte";
   import { lang } from "../../../_layout.svelte";
 
   export let post;

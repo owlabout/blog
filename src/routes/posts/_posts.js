@@ -7,7 +7,7 @@ import mdContainer from "md-container";
 const matter = require("gray-matter");
 const Prism = require("prismjs");
 var loadLanguages = require("prismjs/components/");
-loadLanguages(["bash"]);
+loadLanguages(["bash","json"]);
 const md = require("markdown-it")({
   highlight: function(str, lang) {
     if (lang) {

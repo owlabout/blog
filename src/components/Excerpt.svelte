@@ -10,7 +10,7 @@
     height: 300px;
     background: var(--color-background);
     border-radius: 10px;
-    margin: 40px 20px;
+    margin: 30px;
     transition: 0.3s ease-in-out;
     position: relative;
   }

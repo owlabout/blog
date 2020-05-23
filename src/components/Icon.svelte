@@ -2,15 +2,20 @@
   import {
     faTerminal,
     faServer,
-    faEnvelope
+    faEnvelope,
+    faCode
   } from "@fortawesome/free-solid-svg-icons";
+  import { faVuejs, faNodeJs } from "@fortawesome/free-brands-svg-icons"
 
   // const pathRegex = /<\s*path.* d\=\"([^\"]*)\".*>/;
 
   const icons = {
     terminal: faTerminal,
     email: faEnvelope,
-    devops: faServer
+    devops: faServer,
+    general: faCode,
+    vue: faVuejs,
+    node: faNodeJs
   };
 
   export let icon;

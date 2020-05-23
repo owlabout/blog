@@ -15,8 +15,13 @@
   import { onMount } from "svelte";
   import Hero from "../../../../components/Hero.svelte";
   import { lang } from "../../../_layout.svelte";
+  import { authors } from "./authors.js";
 
   export let post;
+
+  function postAuthor() {
+    return authors[post.metadata.author];
+  }
 
   $: sticky = post.html.indexOf("sticky__container") > 0;
 
@@ -62,6 +67,17 @@
     color: var(--color-lightgrey);
   }
 
+  .author-container {
+    border-top: solid 1px #bebdbd;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  .author {
+    width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   @media screen and (min-width: 1060px) {
     .has-sticky {
       margin-right: 0;
@@ -93,5 +109,11 @@
 <div class="container">
   <div class="post" class:has-sticky={sticky}>
     {@html post.html}
+  </div>
+  <div class="author-container">
+    <div class="author">
+      <b>{postAuthor().name}</b>
+      <p>{postAuthor().description}</p>
+    </div>
   </div>
 </div>

@@ -30,6 +30,5 @@
   <main class={classes}>
     <slot />
   </main>
-
   <Footer />
 </div>

@@ -7,7 +7,7 @@ tags:
     - general
 ---
 
-# Devsplained: Backend, Frontend, Server, Client
+# Backend, Frontend, Server, Client
 
 ![What's that even mean?](https://www.exboyfriendrecovery.com/wp-content/uploads/2015/03/what-does-that-even-mean.jpg)
 

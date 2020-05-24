@@ -13,6 +13,7 @@
     /* Full width is insanely hard to get right */
     width: 100vw;
     align-self: center;
+    margin-bottom: 30px;
   }
   @media screen and (min-width: 1060px) {
     :global(.has-sticky .hero__container) {

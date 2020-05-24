@@ -6,10 +6,10 @@
 
 <style>
   .excerpt {
-    width: 220px;
+    width: 240px;
     height: 300px;
     background: var(--color-background);
-    border-radius: 10px;
+    border-radius: 6px;
     margin: 30px;
     transition: 0.3s ease-in-out;
     position: relative;
@@ -28,8 +28,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     overflow: hidden;
   }
 
@@ -72,6 +72,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 7px;
+    opacity: 0.7;
   }
 </style>
 

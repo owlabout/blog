@@ -3,7 +3,8 @@
     faTerminal,
     faServer,
     faEnvelope,
-    faCode
+    faCode,
+    faPenNib
   } from "@fortawesome/free-solid-svg-icons";
   import { faVuejs, faNodeJs } from "@fortawesome/free-brands-svg-icons"
 
@@ -15,15 +16,16 @@
     devops: faServer,
     general: faCode,
     vue: faVuejs,
-    node: faNodeJs
+    node: faNodeJs,
+    webDesign: faPenNib
   };
 
   export let icon;
   export let label;
   let path = [];
   let viewBox = "";
-  $: viewBox = "0 0 " + icons[icon].icon[0] + " " + icons[icon].icon[1];
-  $: path = icons[icon].icon[4];
+  $: viewBox = icons[icon] ? "0 0 " + icons[icon].icon[0] + " " + icons[icon].icon[1] : "0 0 0 0";
+  $: path = icons[icon] ? icons[icon].icon[4] : icons['general'].icon[4];
 </script>
 
 <style>

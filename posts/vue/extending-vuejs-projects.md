@@ -18,29 +18,31 @@ tags:
 ![Untameable Code Monster vs fluffy cute monsters](./CodeMonster.png)
 :::
 
-So, we had the situation, that we were building an application with Vuejs, which we were using for various projects. Anyone who has built an application for mulitple use-cases will at some point have realized, that there usually isn't a one solution that fits all. Instead you start adding feature after feature, many of which end up only being used in one single project. The application thus turns into an untameable monster, shipping enormous amounts of code for extremely simple tasks. 
+Imagine you start building a little web-app that is supposed to do exactly one thing. But then while you're building it you start realizing: hey wouldn't it be awesome if it also did a second thing? And maybe even a third? So you start adding on to your little application. And then you realize, that you can use this little application for something different entirely, by just adding on another little feature. And at some point down the road you take a step back, and (feeling a bit like Dr. Frankenstein) you realize you've created a monster, that you cannot control. 
+
+Sound slightly familiar? It sure does to me. I think anyone who has built an application for multiple use-cases will, at some point, have realized, that there usually isn't a *one solution that fits all*. Instead you start adding feature after feature, many of which end up only being used in one single project. In effect you're shipping enormous amounts of code for extremely simple tasks. 
 
 
 ## Goal
 
-To goal was to reduce the monster itself to a cute and fluffy size and supply it with some extra gadgets for handling more complex or unique tasks. The endstate needed to fullfill these requirements: 
+I currently have a monster of a Vuejs project. I decided it was time to tame the asshole and reduce him to a cute and fluffy version and supply him with some extra gadgets for handling more complex or unique tasks. The endstate needed to fulfill these requirements: 
 
 - The core project has some core components and functionalities that need to **always** be included
 - Some modules need to be included **only** if specified in that project
-- Some components, that belong th the core project can be customized or replaced in some projects, so those components must act as a default in case that component isn't specified elsewhere.
-- All components and modules need be be able to communicate with each other via a global event-bus, that is included in the core project. 
+- Some components, that belong to the core project can be customized or replaced in some projects, so those components must act as a default in case that component isn't specified elsewhere.
+- All components and modules need to be able to communicate with each other via a global event-bus, that is included in the core project. 
 
 This is the general setup I came up with. 
 ![General Setup](./generalSetup.png)
 
 
 ### Customizable Modules
-"Customizable Module" is a module, that is always included in the core project. In Project B however we might want to replace that module with a customized version. It might have a different layout or some extra functionality which is not compatible with the original functionality.
+"Customizable Module" is a module, that is always included in the core project. In Project B however we might want to replace that module with a customized version. It might have a different layout or some extra functionality that is not compatible with the original functionality.
 
 ### Plugins: Module A,B,C ... 
-Modules A,B and C are plug-ins. They can be added, they can be left out, and both will work just fine. 
+Modules A, B and C are plug-ins. They can be added, they can be left out, and both will work just fine. 
 
-To simplefy the monster, let's just say that the template of our App.vue looks like this: 
+To simplefy the monster, let's just say that our App.vue looks like this: 
 
 ```html
 <template>
@@ -51,20 +53,35 @@ To simplefy the monster, let's just say that the template of our App.vue looks l
       <div class="modlues">
         <ModuleA/>
         <ModuleB/>
-        <ModuleC/>
       </div>
       <CustomizeableModule />
     </div>
   </div>
 </template>
+
+<script>
+  import CoreModule from "./CoreModule.vue";
+  import ModuleA from "./ModuleA.vue";
+  import ModuleB from "./ModuleB.vue";
+  import CustomizeableModule from "./CustomizeableModule.vue";
+  export default {
+    components: {
+      CoreModule,
+      ModuleA,
+      ModuleB,
+      CustomizeableModule
+    }
+  }
+</script>
 ```
-Each of the Modules used are simple Vue components that are imported and registered in the script tag of the App.vue. Our goal is now to move ModuleA, ModuleB and ModuleC to extra Node.js modules outside of our project and only import them, if specified in the configuration of our project. We also want to import a DefaultComponent as our Customizeable module unless a different one is specified in the configuration of our project. 
+Each of the Modules used are simple Vue components that are imported and registered in the script tag of the App.vue. Our goal is now to move module A, module B and module C to extra Node.js modules outside of our project and only import them, if specified in the configuration of our project. We also want to import a default-component as our customizeable module unless a different one is specified in the configuration of our project. 
 
 Let's do it. 
 
-:::tip
-########TODO
-:::
+Let's start with just one Module. How about (great surprise) module A. 
+The first thing I want to do ist move everything that belongs to that module into a separate folder and turn it into an isolated node module, which is included in my development workflow. If you want to see how to create Node.js modules and how to organize your workspace to handle them: check out [this post](/posts/2020/05/organizing-nodejs-modules).
+
+We are just going to assume that the code of module A has already been moved to an extra node-module. We now need to adapt our application to only include module A if it is specified in a configuration file. 
 
 ## Import module only if specified in config.js
 :::sticky configuration for project A
@@ -94,7 +111,7 @@ export default {
   },
   methods: {
     hasModuleA() {
-      return config.ModuleA;
+      return config.ModuleA !== undefined;
     }
   }
 }
@@ -102,8 +119,7 @@ export default {
 ```
 :::
 
-We now have an app that does exactly what it did before, except that the module A part of the code was moved to somewhere else. Now we need to change our app so that it only imports module A if specified in our configuration file. 
-First we need a configuration file, that will handle all of our imports from modules for us. This file is project specific. So here we will import any and all modules that are not part of the core project and export them again.
+First we need a configuration file, that will handle all of our imports from modules for us. This file is project-specific. So here we will import any and all modules that are not part of the core project and export them again.
 
 This is our config.js file if we want to import module A:
 ```js
@@ -114,8 +130,8 @@ export default {
   ModuleA,
 }
 ```
-Now we can go through our core project and make sure that, at any point where moduleA is imported, it will only be imported from our config.js. 
-In our case this would be directly in our App.vue. So let's throw out the import of the Module A component and import our config.js instead. Now we just register the component via our config.js.
+Now we can go through our core project and make sure that, at any point where module A is imported, it will only be imported from our config.js. 
+In our case this would be directly in our App.vue. So let's throw out the import of the module A component and import our config.js instead and register the component via our config.js.
 
 ```js
 // script-tag of App.vue
@@ -128,7 +144,7 @@ export default {
   },
 }
 ```
-Now if we exclude Module A from our config.js it will be completly left out of the build. The template, however, will still try to render a component which it now cannot find. Therefore, let's make sure we know the component is there before we try to render it. V-if will help us with that. 
+Now if we exclude module A from our config.js it will be completely left out of the build. The template, however, will still try to render a component which it now cannot find. Therefore, let's make sure we know the component is there before we try to render it. V-if will help us with that. 
 
 ```html
 <template>
@@ -141,7 +157,7 @@ export default {
   ...
   methods: {
     hasModuleA() {
-      return config.ModuleA;
+      return config.ModuleA !== undefined;
     }
   }
 }
@@ -181,8 +197,8 @@ export default {
 
 We still have a module that we would like to customize in some of our components. For example: say we have a status bar in all of our projects. Some general functionality might be the same in every project, but certain projects might want to expand that functionality to include some extra stuff. 
 
-Since our customizeable module has some functionality, that we want included we can't just replace the component. Because then we'd have to duplicate on the functions that we want to keep. And well, code duplications seems to be something everyone wants to avoid. 
-So instead, we'll use the functionalities as a mixin. Just move the template of the component to a default component which inherits all the functionality from the base component. 
+Since our customizable module has some functionality, that we want to be included we can't just replace the component. Because then we'd have to duplicate the functions that we want to keep. And well, code duplications seem to be something everyone wants to avoid. 
+Instead, we'll use the functionalities as a mixin. Just move the template of the component to a default component that inherits all the functionality from the base component. 
 
 ```html
 <!-- DefaultCustomComponent -->
@@ -190,9 +206,9 @@ So instead, we'll use the functionalities as a mixin. Just move the template of 
   default template of the custom module
 </template>
 <script>
-import baseCustomModule from "./baseCustomModule.vue";
+import BaseCustomModule from "./BaseCustomModule.vue";
 export default {
-  mixins: [baseCustomModlule]
+  mixins: [BaseCustomModlule]
 }
 </script>
 ```
@@ -214,7 +230,7 @@ export default {
 }
 </script>
 ```
-We don't need to change anything in the template of our App.vue, because it will always have a component to render of the name "DefaultCustomComponent". It just might be a different one depending on our config.js. Ah yes, let's not forget to import our Custom Component in our config.js:
+We don't need to change anything in the template of our App.vue, because it will always have a component to render of the name "DefaultCustomComponent". It just might be a different one depending on our config.js. Ah yes, let's not forget to import our custom component in our config.js:
 
 ```js
 // config.js for project A
@@ -227,4 +243,28 @@ export default {
 }
 ```
 
+The CustomModuleX that is being imported here from module-a also uses the same mixin as our default custom component. This means that it needs to import the BaseCustomComponent from the core project. 
 
+:::tip
+use this syntax if you want to import a component under a different name than it was  exported in the Node.js module:
+
+`import { CustomModuleX as DefaultCustomizeableModule } from 'module-a';` 
+:::
+
+## Communicating via Event-Bus
+:::sticky import the eventbus from the core project 
+```html
+<!-- module A component -->
+<script>
+  import { EventBus } from "@/src/eventBus.js"
+</script>
+```
+:::
+
+The original monster uses an event-bus for communication between different vue-components, that cannot simply be solved with properties. Since all of our modules are very project-specific extensions, this actually does not pose a problem at all. None of the modules are meant as libraries that need to function on their own. They are explicitly made to extend the core project. Therefore, there is no reason why the modules cannot simply import the event-bus from the core project and use it normally. Tada: intermodular communication!
+
+:::tip
+webpack lets you define aliases. It might be helpful to have an alias for your root-directory (in this case '@') when importing cross-module components. Otherwise, if your module moves to a different place in your code, everything might go to shit and you'd spend forever trying to figure out why it woult build.
+:::
+
+And that's it. Those are the basic steps we need to go through to tame our asshole of a monster and make it cute and fluffy again while still maintaining all of our fancy use-cases. 

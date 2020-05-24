@@ -36,6 +36,7 @@
     align-items: center;
     overflow: hidden;
     margin-right: 10px;
+    border-radius: 3px;
   }
 
   .thumbnail img {

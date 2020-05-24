@@ -19,14 +19,14 @@ tags:
 ![Untameable Code Monster vs fluffy cute monsters](./CodeMonster.png)
 :::
 
-Imagine you start building a little web-app that is supposed to do exactly one thing. But then while you're building it you start realizing: hey wouldn't it be awesome if it also did a second thing? And maybe even a third? So you start adding on to your little application. And then you realize, that you can use this little application for something different entirely, by just adding on another little feature. And at some point down the road you take a step back, and (feeling a bit like Dr. Frankenstein) you realize you've created a monster, that you cannot control. 
+Imagine you start building a little web-app that is supposed to do exactly one thing. But then the next project for a different customer comes along which is very similar except that it needs to be able to do another thing. And maybe even a third? So you start adding on to your little application. And then you realize, that you can use this little application for an entirely different customer project, by just adding on another little feature. And at some point down the road you take a step back, and (feeling a bit like Dr. Frankenstein) you realize you've created a monster, that you cannot control. 
 
-Sound slightly familiar? It sure does to me. I think anyone who has built an application for multiple use-cases will, at some point, have realized, that there usually isn't a *one solution that fits all*. Instead you start adding feature after feature, many of which end up only being used in one single project. In effect you're shipping enormous amounts of code for extremely simple tasks. 
+Sound slightly familiar? It sure does to me. I think anyone who has built an application and adapted it for multiple projects will, at some point, have realized, that there usually isn't a *one solution that fits all*. Instead you start adding feature after feature, many of which end up only being used in one single project. In effect you're shipping enormous amounts of code for extremely simple tasks. 
 
 
 ## Goal
 
-I currently have a monster of a Vuejs project. I decided it was time to tame the asshole and reduce him to a cute and fluffy version and supply him with some extra gadgets for handling more complex or unique tasks. The endstate needed to fulfill these requirements: 
+I currently have a monster of a Vuejs project. I decided it was time to tame the asshole, reduce him to a cute and fluffy version and supply him with some extra gadgets for handling more complex or unique tasks. The endstate needed to fulfill these requirements: 
 
 - The core project has some core components and functionalities that need to **always** be included
 - Some modules need to be included **only** if specified in that project
@@ -55,7 +55,7 @@ To simplefy the monster, let's just say that our App.vue looks like this:
         <ModuleA/>
         <ModuleB/>
       </div>
-      <CustomizeableModule />
+      <CustomizableModule />
     </div>
   </div>
 </template>
@@ -64,23 +64,23 @@ To simplefy the monster, let's just say that our App.vue looks like this:
   import CoreModule from "./CoreModule.vue";
   import ModuleA from "./ModuleA.vue";
   import ModuleB from "./ModuleB.vue";
-  import CustomizeableModule from "./CustomizeableModule.vue";
+  import CustomizableModule from "./CustomizableModule.vue";
   export default {
     components: {
       CoreModule,
       ModuleA,
       ModuleB,
-      CustomizeableModule
+      CustomizableModule
     }
   }
 </script>
 ```
-Each of the Modules used are simple Vue components that are imported and registered in the script tag of the App.vue. Our goal is now to move module A, module B and module C to extra Node.js modules outside of our project and only import them, if specified in the configuration of our project. We also want to import a default-component as our customizeable module unless a different one is specified in the configuration of our project. 
+Each of the modules used are simple Vue components that are imported and registered in the script tag of the App.vue. Our goal is now to move module A, module B and module C to extra Node.js modules outside of our project and only import them, if specified in the configuration of our project. We also want to import a default-component as our customizable module unless a different one is specified in the configuration of our project. 
 
 Let's do it. 
 
-Let's start with just one Module. How about (great surprise) module A. 
-The first thing I want to do ist move everything that belongs to that module into a separate folder and turn it into an isolated node module, which is included in my development workflow. If you want to see how to create Node.js modules and how to organize your workspace to handle them: check out [this post](/posts/2020/05/organizing-nodejs-modules).
+Let's start with just one module. How about (great surprise) module A. 
+The first thing we want to do ist move everything that belongs to that module into a separate folder and turn it into an isolated node module. We'll make sure to link the module to our project during development so as not to disrupt our flow too much. If you want to see how to create and Node.js modules check out [this post](/posts/2020/05/organizing-nodejs-modules).
 
 We are just going to assume that the code of module A has already been moved to an extra node-module. We now need to adapt our application to only include module A if it is specified in a configuration file. 
 
@@ -187,18 +187,18 @@ export default {
 ```js
 // config.js for project A
 import { ModuleA } from 'module-a';
-import { CustomModuleX as DefaultCustomizeableModule } from 'module-a';
+import { CustomModuleX as DefaultCustomizableModule } from 'module-a';
 
 export default {
   ModuleA,
-  DefaultCustomizeableModule
+  DefaultCustomizableModule
 }
 ```
 :::
 
 We still have a module that we would like to customize in some of our components. For example: say we have a status bar in all of our projects. Some general functionality might be the same in every project, but certain projects might want to expand that functionality to include some extra stuff. 
 
-Since our customizable module has some functionality, that we want to be included we can't just replace the component. Because then we'd have to duplicate the functions that we want to keep. And well, code duplications seem to be something everyone wants to avoid. 
+Since our customizable module has some functionality that we want to be included we can't just replace the component. Because then we'd have to duplicate the functions that we want to keep. And we all know code [duplications are evil](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). 
 Instead, we'll use the functionalities as a mixin. Just move the template of the component to a default component that inherits all the functionality from the base component. 
 
 ```html
@@ -236,11 +236,11 @@ We don't need to change anything in the template of our App.vue, because it will
 ```js
 // config.js for project A
 import { ModuleA } from 'module-a';
-import { CustomModuleX as DefaultCustomizeableModule } from 'module-a';
+import { CustomModuleX as DefaultCustomizableModule } from 'module-a';
 
 export default {
   ModuleA,
-  DefaultCustomizeableModule
+  DefaultCustomizableModule
 }
 ```
 
@@ -249,7 +249,7 @@ The CustomModuleX that is being imported here from module-a also uses the same m
 :::tip
 use this syntax if you want to import a component under a different name than it was  exported in the Node.js module:
 
-`import { CustomModuleX as DefaultCustomizeableModule } from 'module-a';` 
+`import { CustomModuleX as DefaultCustomizableModule } from 'module-a';` 
 :::
 
 ## Communicating via Event-Bus
@@ -262,10 +262,14 @@ use this syntax if you want to import a component under a different name than it
 ```
 :::
 
-The original monster uses an event-bus for communication between different vue-components, that cannot simply be solved with properties. Since all of our modules are very project-specific extensions, this actually does not pose a problem at all. None of the modules are meant as libraries that need to function on their own. They are explicitly made to extend the core project. Therefore, there is no reason why the modules cannot simply import the event-bus from the core project and use it normally. Tada: intermodular communication!
+The original monster uses an event-bus for communication between different vue-components, that cannot simply be solved with properties. I originally figured, that this would be the biggist issue of moving components off to node modules. But node modules are not necessaril libraries.  A library stands for itself and can be used independently. An extension on the other hand is used only in combination with the core project. 
+
+Since all of our modules are very project-specific extensions, the event-bus actually does not pose a problem at all. There is no reason why the modules cannot simply import the event-bus from the core project and use it normally. Tada: intermodular communication!
 
 :::tip
-webpack lets you define aliases. It might be helpful to have an alias for your root-directory (in this case '@') when importing cross-module components. Otherwise, if your module moves to a different place in your code, everything might go to shit and you'd spend forever trying to figure out why it woult build.
+**Webpack lets you define aliases** 
+
+It might be helpful to have an alias for your root-directory (in this case '@') when importing cross-module components. Otherwise, if your module moves to a different place in your code, everything might go to shit and you'd spend forever trying to figure out why it woult build.
 :::
 
-And that's it. Those are the basic steps we need to go through to tame our asshole of a monster and make it cute and fluffy again while still maintaining all of our fancy use-cases. 
+And that's it. Those are the basic steps we need to go through to tame our asshole of a monster and make it cute and fluffy again while still being able to customize it for any project. 

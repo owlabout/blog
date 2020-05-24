@@ -6,16 +6,21 @@
 
 <style>
   .excerpt {
-    width: 240px;
-    height: 300px;
-    background: var(--color-background);
-    border-radius: 6px;
     margin: 30px;
     transition: 0.3s ease-in-out;
-    position: relative;
+    display: flex;
   }
   .excerpt:hover {
     transform: scale(1.1);
+  }
+  .post-preview {
+    width: 350px;
+    position: relative;
+    height: 190px;
+  }
+  .post-preview .descr {
+    padding: 7px;
+    line-height: 1.2;
   }
 
   .thumbnail {
@@ -24,13 +29,13 @@
       rgba(2, 206, 221, 1) 0%,
       rgba(37, 108, 112, 1) 100%
     );
-    height: 150px;
+    height: 190px;
+    width: 240px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
     overflow: hidden;
+    margin-right: 10px;
   }
 
   .thumbnail img {
@@ -58,19 +63,15 @@
     margin: 0;
     padding: 7px;
     color: var(--color-primary);
-    text-align: center;
     font-size: 1.8rem;
   }
 
   footer {
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     height: 30px;
     width: 100%;
     font-size: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0 7px;
     opacity: 0.7;
   }
@@ -80,16 +81,21 @@
   <a class="thumbnail" rel="prefetch" href={post.link} role="presentation">
     <img src={post.thumbnail} role="presentation" alt="Post Thumbnail" />
   </a>
-  <div aria-label="Tags" class="tags">
-    {#each post.tags as tag}
-      <Icon icon={tag} label={tag} />
-    {/each}
+  <div class="post-preview">
+    <div aria-label="Tags" class="tags">
+      {#each post.tags as tag}
+        <Icon icon={tag} label={tag} />
+      {/each}
+    </div>
+    <a rel="prefetch" href={post.link}>
+      <h3>{post.title}</h3>
+      {#if post.description}
+        <div class="descr">{post.description}</div>
+      {/if}
+    </a>
+    <footer>
+      <span>von {post.author}</span>
+      <span> - {post.dateString}</span>
+    </footer>
   </div>
-  <a rel="prefetch" href={post.link}>
-    <h3>{post.title}</h3>
-  </a>
-  <footer>
-    <span>von {post.author}</span>
-    <span>{post.dateString}</span>
-  </footer>
 </div>

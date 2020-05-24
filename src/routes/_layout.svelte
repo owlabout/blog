@@ -25,7 +25,9 @@
 </script>
 
 <div class="layout {classes}">
-  <Nav />
+  <!-- {#if true}
+    <Nav />
+  {/if} -->
 
   <main class={classes}>
     <slot />

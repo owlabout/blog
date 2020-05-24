@@ -31,10 +31,29 @@
     max-width: 102rem;
     margin: 0 auto;
   }
-  .container {
+  .blog-intro {
+    position: fixed;
+    height: 100vh;
+    width: 512px;
+    background-color: #fff;
+    background-image: url('/images/blog.svg');
+    background-repeat: no-repeat;
+    background-position: 100% 30%;
+    left: 0;
+    top: 0;
+  }
+  .blog-info-container {
+    position: absolute;
+    top: calc(30% + 14px);
+    left: 50%;
+    width: 310px;
+    transform: translateX(-50%);
+  }
+  .excerpts-container {
+    margin-left: 512px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 </style>
 
@@ -47,7 +66,18 @@
 </svelte:head>
 
 <div class="container">
+<div class="blog-intro">
+  <div class="blog-info-container">
+    <img src="/app/logo-blog.svg" alt="OwlAbout Blog Logo" />
+    <div class="descr">Blog zu Themen aus den Bereichen Javascript, Vue, Svelte, PHP,
+    Symfony und Softwareentwicklung allgemein.</div>
+  </div>
+  <div class="authors">
+  </div>
+</div>
+<div class="excerpts-container">
   {#each posts as post}
     <Excerpt {post} />
   {/each}
+</div>
 </div>

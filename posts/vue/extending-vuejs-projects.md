@@ -3,7 +3,8 @@ date: 2020-05-19
 author: Becca
 lang: en
 thumbnail: ./extending-vuejs-projects.svg
-title: Extending a Vuejs project
+title: Building an extendable Vue App
+description: A step by step walk thorugh how to extend vue.js based product for customer specific projects
 tags:
     - vue 
 ---

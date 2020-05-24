@@ -14,6 +14,7 @@
 <script>
   import { onMount } from "svelte";
   import Hero from "../../../../components/Hero.svelte";
+  import Nav from "../../../../components/Nav.svelte";
   import PostFooter from "../../../../components/PostFooter.svelte";
   import { lang } from "../../../_layout.svelte";
 
@@ -94,6 +95,7 @@
   {/if}
 </svelte:head>
 
+<Nav />
 <div class="container">
   <div class="post" class:has-sticky={sticky}>
     {@html post.html}

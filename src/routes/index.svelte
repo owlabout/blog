@@ -66,7 +66,7 @@
     position: relative;
     display: inline-block;
   }
-  .author.lukas {
+  .author.becca {
     margin-right: 50px;
   }
   .author .author-desc {
@@ -90,13 +90,45 @@
   .author .author-thumbnail {
     position: absolute;
   }
-  .author .author-thumbnail.lukas {
+  .author .author-thumbnail.becca {
     top: -60%;
     right: -30px;
   }
-  .author .author-thumbnail.becca {
+  .author .author-thumbnail.lukas {
     bottom: -60%;
     left: -30px;
+  }
+  @media (max-width: 1150px) {
+    .blog-intro {
+      position: absolute;
+      width: 100vw;
+      height: 60vh;
+      background-position: 100% 35%;
+      transform: translateY(-100%);
+    }
+    .excerpts-container {
+      margin-left: 0;
+      margin-top: 60vh;
+    }
+    .blog-info-container {
+      left: auto;
+      right: 0;
+      top: calc(35% + 44px);
+    }
+    .authors {
+      left: 70px;
+      transform: translateX(0);
+    }
+  }
+  @media (max-width: 1150px) {
+    .authors {
+      display: none;
+    }
+  }
+  @media (max-width: 500px) {
+    .blog-info-container {
+      left: 50%;
+    }
   }
 </style>
 
@@ -116,6 +148,15 @@
     Symfony und Softwareentwicklung allgemein.</div>
   </div>
   <div class="authors">
+    <div class="author becca">
+      <div class="author-desc">
+        <b class="name">Becca Roberts</b>
+        <div>Webdeveloper<br/>  Designer</div>
+      </div>
+      <div class="author-thumbnail becca">
+        <img src="/images/becca-fp.png" alt="Becca Roberts">
+      </div>
+    </div>
     <div class="author lukas">
       <div class="author-desc">
         <b class="name">Lukas Ehnle</b>
@@ -123,15 +164,6 @@
       </div>
       <div class="author-thumbnail lukas">
         <img src="/images/lukas-fp.png" alt="Lukas Ehnle">
-      </div>
-    </div>
-    <div class="author ">
-      <div class="author-desc">
-        <b class="name">Becca Roberts</b>
-        <div>Webdeveloper<br/>  Designer</div>
-      </div>
-      <div class="author-thumbnail becca">
-        <img src="/images/becca-fp.png" alt="Becca Roberts">
       </div>
     </div>
   </div>

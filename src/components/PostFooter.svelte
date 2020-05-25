@@ -26,7 +26,7 @@
 </script>
 
 <style>
-.author-container {
+  .author-container {
     border-top: solid 1px #bebdbd;
     padding: 10px;
     margin-top: 20px;
@@ -68,5 +68,14 @@
   }
   .author .tags span {
     margin-right: 10px;
+  }
+
+  @media (max-width: 740px) {
+    .author {
+      width: 100%;
+    }
+    .author .info {
+      width: calc(100% - 110px);
+    }
   }
 </style>

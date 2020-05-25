@@ -76,6 +76,24 @@
     padding: 0 7px;
     opacity: 0.7;
   }
+  @media (max-width: 640px) {
+    .excerpt {
+      flex-direction: column;
+    }
+    .thumbnail,
+    .post-preview {
+      width: calc(100vw - 40px);
+      max-width: 300px;
+    }
+    .post-preview {
+      height: auto;
+    }
+    footer {
+      position: relative;
+      margin-top: 20px;
+    }
+  }
+
 </style>
 
 <div class="excerpt">

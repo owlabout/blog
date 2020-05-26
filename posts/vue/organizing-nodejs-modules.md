@@ -2,7 +2,7 @@
 date: 2020-05-19
 author: Becca
 lang: en
-title: Splitting your Vue.js Project into Node.js modules
+title: Splitting your Vue.js project into Node.js modules
 thumbnail: ./node-orga.svg
 tags:
     - node
@@ -13,7 +13,7 @@ tags:
 ![Lost without structure](./node-orga.svg)
 :::
 
-# Splitting your Vue.js Project into Node.js modules
+# Splitting your Vue.js project into Node.js modules
 
 There are many reasons to make your code more modular. You might want to include single modules in different projects. You may just want to add some extra structure to your project. You may want to track versions of different parts of your code. I stayed away from over-modularizing my code for a while because I didn't want the extra overhead of managing not just one code-base for my project but 10. It seemed like more work than it was worth. 
 

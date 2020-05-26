@@ -95,7 +95,7 @@
   {/if}
 </svelte:head>
 
-<Nav />
+<Nav title={post.title}/>
 <div class="container">
   <div class="post" class:has-sticky={sticky}>
     {@html post.html}

@@ -15,6 +15,7 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+    width: 100%;
   }
 
   footer img {
@@ -59,6 +60,19 @@
     opacity: 1;
     height: 1.2rem;
     width: 1.2rem;
+  }
+
+  @media (max-width: 450px) {
+    footer {
+      height: 60px;
+      font-size: 1.4rem;
+    }
+    a {
+      margin-right: 0;
+    }
+    footer img {
+      height: 30px;
+    }
   }
 </style>
 
